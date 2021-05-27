@@ -30,7 +30,7 @@ struct ContentView: View {
             )
             
             BackCardView()
-                .frame(width: showCard ? 300 : 340, height: 220)
+                .frame(width: showCard ? CGFloat(300) : 340, height: 220)
                 .background(show ? Color("card3") : Color("card4"))
                 .cornerRadius(20)
                 .shadow(radius: 20)
@@ -60,7 +60,7 @@ struct ContentView: View {
                 .animation(.easeInOut(duration: 0.3))
             
             CardView()
-                .frame(width: showCard ? 375 : 340.0, height: 220.0)
+                .frame(width: showCard ? CGFloat(375) : 340.0, height: 220.0)
                 .background(Color.black)
 //                .cornerRadius(20)
                 .clipShape(RoundedRectangle(cornerRadius: showCard ? 30 : 20, style: .continuous))
@@ -85,7 +85,7 @@ struct ContentView: View {
             
 //            Text("\(bottomState.height)").offset(y: -300)
             
-            BottomCardView()
+            BottomCardView(show: $showCard)
                 .offset(x: 0, y: showCard ? 360 : 1000)
                 .offset(y: bottomState.height)
                 .blur(radius: show ? 20 : 0)
@@ -174,6 +174,9 @@ struct TitleView: View {
 }
 
 struct BottomCardView: View {
+    
+    @Binding var show: Bool
+    
     var body: some View {
         VStack(spacing: 20) {
             Rectangle()
@@ -184,6 +187,23 @@ struct BottomCardView: View {
                 .multilineTextAlignment(.center)
                 .font(.subheadline)
                 .lineSpacing(4)
+            
+            HStack(spacing: 20.0) {
+                RingView(color1: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)), color2: Color(#colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)), width: 88, height: 88, percent: 78, show: $show)
+                
+                VStack(alignment: .leading, spacing: 8.0) {
+                    Text("SwiftUI").fontWeight(.bold)
+                    Text("12 of 12 sections completed\n10 hours spent so far")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                        .lineSpacing(4)
+                }
+                .padding(20.0)
+                .background(Color.white)
+                .cornerRadius(20.0)
+                .shadow(color: .black.opacity(0.2), radius: 20, x: 0, y: 10)
+            }
+            
             Spacer()
         }
         .padding(.top, 8)
