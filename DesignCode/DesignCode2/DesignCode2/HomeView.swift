@@ -14,66 +14,71 @@ struct HomeView: View {
     @Binding var showContent: Bool
     
     var body: some View {
-        VStack {
-            HStack(spacing: 12) {
-                Text("Watching")
-                    .font(.workSans(size: 28, weight: .bold))
-                
-                Spacer()
-                
-                AvatarView(showProfile: $showProfile)
-                
-                Button(action: { self.showUpdate.toggle() }) {
-                    Image(systemName: "bell")
-                        .renderingMode(.original)
-                        .font(.system(size: 16, weight: .medium))
-                        .frame(width: 36, height: 36)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
-                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                }
-                .sheet(isPresented: $showUpdate) {
-                    UpdateList()
-                }
-            }
-            .padding(.horizontal)
-            .padding(.leading, 14)
-            .padding(.top, 30)
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                WatchingView(showContent: $showContent)
-                    .padding(.horizontal, 30)
-                    .padding(.bottom, 30)
-            }
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
-                    ForEach(sectionData) { item in
-                        GeometryReader { geometry in
-                            SectionView(section: item)
-                                .rotation3DEffect(Angle(degrees:
-                                                            Double(geometry.frame(in: .global).minX - 30) / -20
-                                ), axis: (x: 0, y: 10, z: 0))
-                        }
-                        .frame(width: 275, height: 275)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading) {
+                HStack(spacing: 12) {
+                    Text("Watching")
+                        .font(.workSans(size: 28, weight: .bold))
+                    
+                    Spacer()
+                    
+                    AvatarView(showProfile: $showProfile)
+                    
+                    Button(action: { self.showUpdate.toggle() }) {
+                        Image(systemName: "bell")
+                            .renderingMode(.original)
+                            .font(.system(size: 16, weight: .medium))
+                            .frame(width: 36, height: 36)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                    }
+                    .sheet(isPresented: $showUpdate) {
+                        UpdateList()
                     }
                 }
-                .padding(30)
-                .padding(.bottom, 30)
-            }
-            .offset(y: -30)
-            
-            HStack {
-                Text("Courses")
-                    .font(.title).bold()
+                .padding(.horizontal)
+                .padding(.leading, 14)
+                .padding(.top, 30)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    WatchingView(showContent: $showContent)
+                        .padding(.horizontal, 30)
+                        .padding(.bottom, 30)
+                }
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        ForEach(sectionData) { item in
+                            GeometryReader { geometry in
+                                SectionView(section: item)
+                                    .rotation3DEffect(Angle(degrees:
+                                                                Double(geometry.frame(in: .global).minX - 30) / -20
+                                    ), axis: (x: 0, y: 10, z: 0))
+                            }
+                            .frame(width: 275, height: 275)
+                        }
+                    }
+                    .padding(30)
+                    .padding(.bottom, 30)
+                }
+                .offset(y: -30)
+                
+                VStack(alignment: .leading) {
+                    Text("Courses")
+                        .font(.title).bold()
+                        .padding(.bottom)
+                        
+                    SectionView(section: sectionData[2], width: screen.width - 60, height: 275)
+                }
+                .padding(.leading, 30)
+                .offset(y: -60)
+                
+                
+                
                 Spacer()
             }
-            .padding(.leading, 30)
-            
-            
-            
-            Spacer()
         }
     }
 }
