@@ -30,6 +30,7 @@
 		B33E3A20265F87CC008745D8 /* WorkSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B33E3A16265F87CC008745D8 /* WorkSans-Thin.ttf */; };
 		B33E3A21265F87CC008745D8 /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B33E3A17265F87CC008745D8 /* WorkSans-Black.ttf */; };
 		B33E3A22265F87CC008745D8 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B33E3A18265F87CC008745D8 /* WorkSans-Bold.ttf */; };
+		B33E3A24265FAE3C008745D8 /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33E3A23265FAE3C008745D8 /* CourseList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		B33E3A16265F87CC008745D8 /* WorkSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Thin.ttf"; sourceTree = "<group>"; };
 		B33E3A17265F87CC008745D8 /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
 		B33E3A18265F87CC008745D8 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
+		B33E3A23265FAE3C008745D8 /* CourseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				B3065714265E6D5B00E1C2A4 /* ContentView.swift */,
 				B3065700265E6AD900E1C2A4 /* Home.swift */,
 				B30656FD265E6AD900E1C2A4 /* HomeView.swift */,
+				B33E3A23265FAE3C008745D8 /* CourseList.swift */,
 				B30656FF265E6AD900E1C2A4 /* MenuView.swift */,
 				B3065702265E6AD900E1C2A4 /* TabBar.swift */,
 				B3065701265E6AD900E1C2A4 /* UpdateDetail.swift */,
@@ -217,6 +220,7 @@
 				B33E3A0D265F7B20008745D8 /* Modifiers.swift in Sources */,
 				B306570B265E6AD900E1C2A4 /* TabBar.swift in Sources */,
 				B3065708265E6AD900E1C2A4 /* MenuView.swift in Sources */,
+				B33E3A24265FAE3C008745D8 /* CourseList.swift in Sources */,
 				B306570A265E6AD900E1C2A4 /* UpdateDetail.swift in Sources */,
 				B306570D265E6AD900E1C2A4 /* UpdateList.swift in Sources */,
 				B3065706265E6AD900E1C2A4 /* HomeView.swift in Sources */,
